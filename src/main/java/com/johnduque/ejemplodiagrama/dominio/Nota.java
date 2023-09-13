@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Nota {
 
+    private static final double PORC_SEGUIMIENTO = 0.4;
+    private static final double PORC_FINAL = 0.3;
+    private static final double PORC_PARCIAL = 0.3;
     private double notaParcial;
     private double notaFinal;
     private ArrayList<Double> notasSeguimiento;
@@ -28,9 +31,9 @@ public class Nota {
     }
 
     public double calcularDefinitiva(){
-        return (this.notaParcial*0.3)+
-                (this.notaFinal*0.3)+
-                (calcularSeguimiento()*0.4);
+        return (this.notaParcial*Nota.PORC_PARCIAL)+
+                (this.notaFinal*Nota.PORC_FINAL)+
+                (calcularSeguimiento()*Nota.PORC_SEGUIMIENTO);
     }
 
     public double getNotaParcial() {
