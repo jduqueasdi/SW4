@@ -8,10 +8,10 @@ import java.util.List;
 public class AplicacionHerencia {
     public static void main(String[] args) {
         List<Vehiculo> vehiculos = new ArrayList<>();
-        Taxi taxi = new Taxi();
-        Bicicleta bici = new Bicicleta();
-        BicicletaMontana mtb = new BicicletaMontana();
-        BicicletaRuta rutera = new BicicletaRuta();
+        Taxi taxi = new Taxi("Mazda", "CX-30", (short) 2020);
+        Bicicleta bici = new Bicicleta("GW", "Ocelot", (short) 2023, "Hidraulico");
+        BicicletaMontana mtb = new BicicletaMontana("GW", "Phanter", (short) 2020, "Hidraulico", "Fox");
+        BicicletaRuta rutera = new BicicletaRuta("Specialized", "Ruta", (short) 2020, "Hidraulico");
 
         vehiculos.add(taxi);
         vehiculos.add(bici);
@@ -24,10 +24,23 @@ public class AplicacionHerencia {
 
         taxi.setEmpresa("Amarillo");
 
-        if (vehiculo1 instanceof Bicicleta){
-            System.out.println("Es un vehículo");
-        }else {
-            System.out.println("No es un vehículo");
-        }
+        mostrarVehiculo(vehiculos);
+        acelerarVehiculo(vehiculos);
+    }
+
+    private static void acelerarVehiculo(List<Vehiculo> vehiculos){
+        vehiculos.forEach(vehiculo -> {
+            vehiculo.acelerar();
+        });
+    }
+
+    private static void mostrarVehiculo(List<Vehiculo> vehiculos){
+        vehiculos.forEach(vehiculo -> {
+            if(vehiculo instanceof Taxi){
+                System.out.println(vehiculo.toString() + " - es taxi");
+            } else if (vehiculo instanceof BicicletaMontana) {
+                System.out.println(vehiculo.toString() + " - es bicicleta de montaña");
+            }
+        });
     }
 }

@@ -1,6 +1,6 @@
 package com.johnduque.herencia.dominio;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
     private String matricula;
     private String marca;
@@ -14,12 +14,18 @@ public class Vehiculo {
         this.anioModelo = anioModelo;
     }
 
-    public void acelerar(){
-        System.out.println("Aceleró");
-    }
+    public abstract void acelerar();
 
     public void frenar(){
         System.out.println("Frenó");
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "marca='" + marca + '\'' +
+                ", linea='" + linea + '\'' +
+                '}';
     }
 
     public String getMatricula() {
