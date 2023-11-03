@@ -23,9 +23,11 @@ public class AplicacionCelular {
         boolean desbloqueo = celular.desbloquear(persona);
 
         if(desbloqueo){
-            System.out.println("Desbloqueó " + persona.getNombre() + "-" + celular.getMarca());
+            System.out.println("Desbloqueó " + persona.getNombre()
+                    + "-" + celular.getMarca());
         }else {
-            System.out.println("No desbloqueó " + persona.getNombre() + "-" + celular.getMarca());
+            System.out.println("No desbloqueó " + persona.getNombre()
+                    + "-" + celular.getMarca());
         }
     }
 }
